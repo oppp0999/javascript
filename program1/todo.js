@@ -3,8 +3,6 @@ const toDoform = document.querySelector('#todoform'),
     LS_TODO = 'TODO',   //로컬 key = todo
     todolist = document.querySelector('ul');
 let todos = [];
-
-
     function LS_Save(){
         localStorage.setItem(LS_TODO,JSON.stringify(todos));
         //객체를 STRING으로 변환해서저장 LOCAL은 STRING 밖에 저장이 안됨
@@ -14,21 +12,20 @@ let todos = [];
         const li = document.createElement('li'), //LI 생성
             span = document.createElement('span'), //span 생성
             delBtn = document.createElement('button'), //button 생성
-            newId = todos.length+1; //li에 만들어줄 id값 생성
 
+            newId = todos.length+1; //li에 만들어줄 id값 생성
         delBtn.innerText = 'del'; // 버튼에 텍스트 이모티콘 추가
         delBtn.addEventListener('click',deleteLiBtn);
         span.innerText = text; // span 에 입력한값 추가
-        li.appendChild(delBtn); // li에 버튼 추가
-        li.appendChild(span); // li 안에 span 추가
-        li.id = newId; //li 에 id 값 할당
+        li.appendChild(delBtn); // li에 버튼 추가 ' 인듯?
+        li.appendChild(span); // li 안에 span 추가 글내용?
+        li.id = newId; //li 에 id 값 할당     
         todolist.appendChild(li); // ul에 li 추가
-
         const todoObj = {
             text : text, //텍스트값
             id : newId  //li id값 지정
         }
-
+        
         todos.push(todoObj); //객체를 배열에 저장
         LS_Save();
     }
@@ -74,3 +71,7 @@ let todos = [];
         
     }
     init();
+
+    
+
+
